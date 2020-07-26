@@ -1,520 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>기말고사 파이썬 총정리</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래밍 정리</title>
 </head>
+<style>
+    h1 {
+        text-align: center;
+        margin-bottom: 3vw;
+    }
 
-<body class="stackedit">
-  <div class="stackedit__left">
-    <div class="stackedit__toc">
-      
-<ul>
-<li><a href="#programming-b---python3">Programming B - Python3</a></li>
-<li><a href="#python으로-무엇을-할-수-있을까">PYTHON으로 무엇을 할 수 있을까?</a></li>
-<li><a href="#문자열-자료형">문자열 자료형</a>
-<ul>
-<li><a href="#문자열-연산">문자열 연산</a></li>
-<li><a href="#문자열-포맷팅">문자열 포맷팅</a></li>
-</ul>
-</li>
-<li><a href="#리스트">리스트</a>
-<ul>
-<li><a href="#리스트-관련-중요-함수">리스트 관련 중요 함수</a></li>
-</ul>
-</li>
-<li><a href="#튜플">튜플</a></li>
-<li><a href="#딕셔너리">딕셔너리</a>
-<ul>
-<li><a href="#딕셔너리-관련-중요-함수">딕셔너리 관련 중요 함수</a></li>
-</ul>
-</li>
-<li><a href="#집합-자료형">집합 자료형</a></li>
-<li><a href="#불-자료형">불 자료형</a></li>
-<li><a href="#if문">if문</a></li>
-<li><a href="#while">while</a></li>
-<li><a href="#for">for</a>
-<ul>
-<li><a href="#리스트-내포">리스트 내포</a></li>
-</ul>
-</li>
-<li><a href="#함수">함수</a>
-<ul>
-<li><a href="#함수-사용시-주의할-점">함수 사용시 주의할 점</a></li>
-<li><a href="#lambda">lambda</a></li>
-</ul>
-</li>
-<li><a href="#파일-입출력">파일 입출력</a></li>
-</ul>
+    body {
+        font-family: "Noto Sans KR", sans-serif;
+        background-color: #e8eaf0;
+    }
 
+    .container {
+        height: 20%;
+        border-radius: 45px;
+        background: linear-gradient(145deg, #e0e2e7, #eeeff1);
+        box-shadow: 20px 20px 15px #e0e0e0, -15px -15px 20px #ffffff;
+        width: 70vw;
+        margin: 0 auto;
+        padding-top: 10vh;
+    }
+
+    .box {
+        text-decoration: none;
+        width: 23%;
+        height: 7vh;
+        margin-bottom: 10ex;
+        outline: none;
+        border: none;
+        border-radius: 50px;
+        background: linear-gradient(145deg, #e7e7e7, #ececec);
+        box-shadow: 20px 20px 15px #cfcfcf, -5px -10px 20px #ffffff;
+        margin-left: 6vw;
+    }
+
+    .box:hover {
+        background: linear-gradient(145deg, #afdbff, #fdb8f7);
+    }
+
+    .box:active {
+        box-shadow: inset 20px 20px 15px #cfcfcf, inset -5px -10px 20px #ffffff;
+    }
+
+    @media screen and (max-width: 650px) {
+        .box{
+            width: 75%;
+        }
+        .container{
+            width: 85%;
+        }
+    }
+</style>
+
+<body>
+    <h1>프로그래밍 정리</h1>
+    <div class="container">
+        <a href="c.html" target="_blank"><button class="box">C언어 정리</button></a>
+        <a href="python.html" target="_blank"><button class="box">파이썬 정리</button></a>
     </div>
-  </div>
-  <div class="stackedit__right">
-    <div class="stackedit__html">
-      <h1 id="programming-b---python3">Programming B - Python3</h1>
-<hr>
-<h1 id="python으로-무엇을-할-수-있을까">PYTHON으로 무엇을 할 수 있을까?</h1>
-<ul>
-<li>시스템 유틸리티 제작</li>
-<li>GUI 프로그래밍</li>
-<li>C/C++와의 결합</li>
-<li>웹 프로그래밍</li>
-<li>수치 연산 프로그래밍</li>
-<li>데이터베이스 프로그래밍</li>
-<li>데이터 분석, 사물 인터넷</li>
-</ul>
-<h1 id="문자열-자료형">문자열 자료형</h1>
-<h2 id="문자열-연산">문자열 연산</h2>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token string">'hello'</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b<span class="token operator">=</span><span class="token string">'world'</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">+</span>b
-<span class="token string">'helloworld'</span>
-</code></pre>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token string">'test123'</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> b<span class="token operator">=</span><span class="token number">3</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">*</span>b
-<span class="token string">'test123test123test123'</span>
-</code></pre>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token string">'hello'</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'b'</span>
-Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
-TypeError<span class="token punctuation">:</span> <span class="token string">'str'</span> <span class="token builtin">object</span> does <span class="token operator">not</span> support item assignment
-</code></pre>
-<p>슬라이싱을 활용하여 문자열을 조합하거나 replace 함수를 쓰자.</p>
-<h2 id="문자열-포맷팅">문자열 포맷팅</h2>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%s is fun %d"</span> <span class="token operator">%</span><span class="token punctuation">(</span><span class="token string">"python"</span><span class="token punctuation">,</span> <span class="token number">1423</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-python <span class="token keyword">is</span> fun <span class="token number">1423</span>
-</code></pre>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> name<span class="token operator">=</span><span class="token string">'Devleo'</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> num<span class="token operator">=</span><span class="token number">1423</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">"I am {0} {1} !!"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>num<span class="token punctuation">,</span>name<span class="token punctuation">)</span>
-<span class="token string">'I am 1423 Devleo !!'</span>
-</code></pre>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">"I am {num} {name} !!"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>num<span class="token operator">=</span><span class="token number">1423</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'Devleo'</span><span class="token punctuation">)</span>
-<span class="token string">'I am 1423 Devleo !!'</span>
-</code></pre>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> pi<span class="token operator">=</span><span class="token number">3.141592653589793238462643383279502884197169399375</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token string">"{0:10.5f}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>pi<span class="token punctuation">)</span>
-<span class="token string">'   3.14159'</span>
-</code></pre>
-<p>10칸의 공간에서 우측정렬, 소수점 6번째 자리에서 반올림</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{0:=^20}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">"hello"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>hello<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
-</code></pre>
-<p>20칸의 공간에서 hello 를 ‘=’ 으로 둘러싸고 가운데 정렬</p>
-
-<table>
-<thead>
-<tr>
-<th>정렬</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&lt;</td>
-<td>왼쪽 정렬</td>
-</tr>
-<tr>
-<td>&gt;</td>
-<td>오른쪽 정렬</td>
-</tr>
-<tr>
-<td>^</td>
-<td>가운데 정렬</td>
-</tr>
-</tbody>
-</table><h1 id="리스트">리스트</h1>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'life'</span><span class="token punctuation">,</span> <span class="token string">'is'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-<span class="token string">'is'</span>
-</code></pre>
-<p>중첩해서 사용 가능</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'hello'</span><span class="token punctuation">,</span><span class="token string">'python'</span><span class="token punctuation">]</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-<span class="token number">4</span>
-</code></pre>
-<p>리스트 원소의 개수 : <code>len()</code></p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">"python"</span>
-Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
-TypeError<span class="token punctuation">:</span> unsupported operand <span class="token builtin">type</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token operator">+</span><span class="token punctuation">:</span> <span class="token string">'int'</span> <span class="token operator">and</span> <span class="token string">'str'</span>
-</code></pre>
-<p><code>a[3]</code> 을 <code>str</code>로 형변환 한다</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token builtin">str</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"python"</span>
-<span class="token string">'3python'</span>
-</code></pre>
-<h2 id="리스트-관련-중요-함수">리스트 관련 중요 함수</h2>
-
-<table>
-<thead>
-<tr>
-<th>함수</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>append()</td>
-<td>리스트 요소 추가</td>
-</tr>
-<tr>
-<td>sort()</td>
-<td>리스트 정렬</td>
-</tr>
-<tr>
-<td>reverse()</td>
-<td>리스트 뒤집기</td>
-</tr>
-<tr>
-<td>index()</td>
-<td>위치 반환 (존재하지 않는 값은 <code>ValueError</code>)</td>
-</tr>
-<tr>
-<td>pop()</td>
-<td>리스트 요소 (n번째) 빼기</td>
-</tr>
-</tbody>
-</table><pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">47</span><span class="token punctuation">,</span><span class="token number">258</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">,</span><span class="token number">79</span><span class="token punctuation">,</span><span class="token number">238</span><span class="token punctuation">,</span><span class="token number">35</span><span class="token punctuation">]</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token boolean">None</span>
-</code></pre>
-<p>리스트 a를 오름차순으로 정렬해주는 것은 맞지만, <strong>출력할 반환값이 없음</strong> (<code>reverse()</code> 도 동일)</p>
-<h1 id="튜플">튜플</h1>
-<ul>
-<li><strong>리스트와 달리 값의 생성, 삭제, 수정 불가</strong></li>
-<li>중첩해서 사용 가능</li>
-<li>인덱싱, 슬라이싱 가능</li>
-<li>더하기 곱하기 가능</li>
-</ul>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a
-<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
-</code></pre>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a
-<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">3</span>
-Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
-  File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
-TypeError<span class="token punctuation">:</span> <span class="token string">'tuple'</span> <span class="token builtin">object</span> does <span class="token operator">not</span> support item assignment
-</code></pre>
-<h1 id="딕셔너리">딕셔너리</h1>
-<ul>
-<li>대응관계를 나타낼 수 있는 자료형</li>
-<li>key를 통해 value를 얻음</li>
-</ul>
-<pre class=" language-py"><code class="prism  language-py">a<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span><span class="token string">"Devleo"</span><span class="token punctuation">,</span><span class="token string">"birth"</span><span class="token punctuation">:</span><span class="token string">"040324"</span><span class="token punctuation">,</span> <span class="token string">"school"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token number">1423</span><span class="token punctuation">,</span><span class="token string">"WP"</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
-</code></pre>
-<p><code>value</code>에 리스트 사용 가능, <code>key</code>는 불가</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token punctuation">[</span><span class="token string">"name"</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">"SangHyuk"</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a
-<span class="token punctuation">{</span><span class="token string">'school'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1423</span><span class="token punctuation">,</span> <span class="token string">'WP'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'SangHyuk'</span><span class="token punctuation">,</span> <span class="token string">'birth'</span><span class="token punctuation">:</span> <span class="token string">'040324'</span><span class="token punctuation">}</span>
-</code></pre>
-<p>추가, 수정 가능</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">del</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token string">"birth"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a
-<span class="token punctuation">{</span><span class="token string">'school'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1423</span><span class="token punctuation">,</span> <span class="token string">'WP'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'SangHyuk'</span><span class="token punctuation">}</span>
-</code></pre>
-<p>삭제 가능</p>
-<h2 id="딕셔너리-관련-중요-함수">딕셔너리 관련 중요 함수</h2>
-
-<table>
-<thead>
-<tr>
-<th>함수</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>keys()</td>
-<td>key값 반환 <code>['school', 'name']</code></td>
-</tr>
-<tr>
-<td>values()</td>
-<td>value값 반환 <code>[[1423, 'WP'], 'SangHyuk']</code></td>
-</tr>
-<tr>
-<td>items()</td>
-<td>key, value 쌍을 튜플로 반환 <code>[('school', [1423, 'WP']), ('name', 'SangHyuk')]</code></td>
-</tr>
-<tr>
-<td>get()</td>
-<td>key에 대응하는 value 반환 <code>SangHyuk'</code></td>
-</tr>
-</tbody>
-</table><h1 id="집합-자료형">집합 자료형</h1>
-<ul>
-<li>집합에 관련된 것을 쉽게 처리</li>
-<li>중복 허용하지 않음</li>
-<li>순서가 없음</li>
-<li><strong>인덱싱으로 값을 얻을 수 없음</strong></li>
-</ul>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s1<span class="token operator">=</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s1
-<span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-Traceback <span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>
- File <span class="token string">"&lt;stdin&gt;"</span><span class="token punctuation">,</span> line <span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">in</span> <span class="token operator">&lt;</span>module<span class="token operator">&gt;</span>
-TypeError<span class="token punctuation">:</span> <span class="token string">'set'</span> <span class="token builtin">object</span> does <span class="token operator">not</span> support indexing
-</code></pre>
-
-<table>
-<thead>
-<tr>
-<th>집합자료형 연산</th>
-<th>연산자</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>교집합</td>
-<td><code>&amp;</code></td>
-</tr>
-<tr>
-<td>합집합</td>
-<td><code>|</code></td>
-</tr>
-<tr>
-<td>차집합</td>
-<td><code>-</code></td>
-</tr>
-</tbody>
-</table><pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s2<span class="token operator">=</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s1<span class="token operator">-</span>s2
-<span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-
-<table>
-<thead>
-<tr>
-<th>집합자료형 관련 함수</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>add()</td>
-<td>1개의 값 추가</td>
-</tr>
-<tr>
-<td>update()</td>
-<td>여러개의 값 추가</td>
-</tr>
-<tr>
-<td>remove()</td>
-<td>특정값 제거</td>
-</tr>
-</tbody>
-</table><pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s1<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s1
-<span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s1<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> s1
-<span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-</code></pre>
-<h1 id="불-자료형">불 자료형</h1>
-<p>참과 거짓을 나타내는 자료형 (True or False)</p>
-<h1 id="if문">if문</h1>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token number">31337</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">if</span> a<span class="token operator">%</span><span class="token number">2</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'odd'</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">else</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'even'</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-odd
-</code></pre>
-<p>제어문에서 콜론을 사용하여 들여쓰기</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">if</span> a<span class="token operator">%</span><span class="token number">2</span> <span class="token operator">and</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">else</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'world'</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-hello
-</code></pre>
-<p><code>and</code>, <code>or</code>, <code>not</code>사용 가능</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> dimi<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'EB'</span><span class="token punctuation">,</span> <span class="token string">'DC'</span><span class="token punctuation">,</span> <span class="token string">'HD'</span><span class="token punctuation">]</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">if</span> <span class="token string">'WP'</span> <span class="token keyword">in</span> dimi<span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">pass</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">else</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'no dimi...'</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-no dimi<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-</code></pre>
-<p><code>x in 튜플, 리스트, 문자열</code><br>
-<code>x not in 튜플, 리스트, 문자열</code> 사용 가능<br>
-<code>pass</code>는 조건문에서 아무일도 하지 않게 설정</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> a<span class="token operator">=</span><span class="token number">2</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">if</span> a<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'I'</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">elif</span> a<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'love'</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token keyword">else</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'python!'</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-love
-</code></pre>
-<p><code>if ~ elif ~ ... ~ else</code> 형태로 다양한 조건 판단 가능</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> score<span class="token operator">=</span><span class="token number">93</span>
-<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">)</span> <span class="token keyword">if</span> score <span class="token operator">&gt;=</span> <span class="token number">90</span> <span class="token keyword">else</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'fail'</span><span class="token punctuation">)</span>
-success
-</code></pre>
-<p>조건부 표현식 - 가독성, 활용성 좋음</p>
-<h1 id="while">while</h1>
-<pre class=" language-py"><code class="prism  language-py">time<span class="token operator">=</span><span class="token number">0</span>
-<span class="token keyword">while</span> time <span class="token operator">&lt;</span>  <span class="token number">7</span><span class="token punctuation">:</span>
-	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%d a.m. sleeping..."</span>  <span class="token operator">%</span>time<span class="token punctuation">)</span>
-	time<span class="token operator">+=</span><span class="token number">1</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'wake up!!'</span><span class="token punctuation">)</span>
-</code></pre>
-<pre><code>0 a.m. sleeping...
-1 a.m. sleeping...
-2 a.m. sleeping...
-3 a.m. sleeping...
-4 a.m. sleeping...
-5 a.m. sleeping...
-6 a.m. sleeping...
-wake up!!
-</code></pre>
-<pre class=" language-py"><code class="prism  language-py">money <span class="token operator">=</span> <span class="token number">2000</span>
-drink <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"energy drink"</span><span class="token punctuation">,</span> <span class="token string">"soda"</span><span class="token punctuation">,</span> <span class="token string">"coke"</span><span class="token punctuation">,</span> <span class="token string">"toreta"</span><span class="token punctuation">)</span>
-cost <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token number">700</span><span class="token punctuation">,</span> <span class="token number">800</span><span class="token punctuation">,</span> <span class="token number">1200</span><span class="token punctuation">]</span>
-<span class="token keyword">while</span> <span class="token number">1</span><span class="token punctuation">:</span>  <span class="token comment"># while True: 와 동일</span>
-    i <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">while</span> i <span class="token operator">&lt;</span> <span class="token builtin">len</span><span class="token punctuation">(</span>drink<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%d. %s (%d)"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> drink<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> cost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        i <span class="token operator">+=</span> <span class="token number">1</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"money = %d"</span> <span class="token operator">%</span>money<span class="token punctuation">)</span>
-    choice <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> choice <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">and</span> choice <span class="token operator">&lt;=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>drink<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> money <span class="token operator">&gt;=</span> cost<span class="token punctuation">[</span>choice<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You bought %s!"</span> <span class="token operator">%</span> drink<span class="token punctuation">[</span>choice<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-            money<span class="token operator">-=</span>cost<span class="token punctuation">[</span>choice<span class="token number">-1</span><span class="token punctuation">]</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"you have not enough money"</span><span class="token punctuation">)</span>
-            <span class="token keyword">break</span>        
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"there is no number %d..."</span> <span class="token operator">%</span>choice<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"bye bye"</span><span class="token punctuation">)</span>
-</code></pre>
-<p>break : 특정 조건에서 반복문 탈출<br>
-continue : 반복문 처음으로 이동</p>
-<h1 id="for">for</h1>
-<pre><code>for 변수 in 리스트, 튜플, 문자열:
-	반복할 내용
-</code></pre>
-<p>리스트나 튜플, 문자열의 요소에 차례로 변수에 대입된다.</p>
-<pre class=" language-py"><code class="prism  language-py">a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span>
-<span class="token builtin">sum</span><span class="token operator">=</span><span class="token number">0</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> a<span class="token punctuation">:</span>
-	<span class="token builtin">sum</span><span class="token operator">+=</span>i
-<span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token builtin">sum</span><span class="token punctuation">)</span>
-</code></pre>
-<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token operator">*</span>j<span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">" "</span><span class="token punctuation">)</span>
-</code></pre>
-<p>range(2,5) 는 2부터 4까지를 의미한다.</p>
-<h2 id="리스트-내포">리스트 내포</h2>
-<pre class=" language-py"><code class="prism  language-py">a<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span>
-res<span class="token operator">=</span><span class="token punctuation">[</span>i<span class="token operator">*</span><span class="token number">4</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> a <span class="token keyword">if</span> i <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">]</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
-
-<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">24</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">]</span>
-</code></pre>
-<p>a 원소 중 0보다 큰 수들에 4를 곱한 값을 저장</p>
-<h1 id="함수">함수</h1>
-<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token operator">*</span>arr<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token builtin">sum</span><span class="token operator">=</span><span class="token number">0</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> arr<span class="token punctuation">:</span>
-        <span class="token builtin">sum</span><span class="token operator">+=</span>i
-    <span class="token keyword">return</span> <span class="token builtin">sum</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>add<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<p>매개변수에 <code>*</code>을 붙이면 <strong>여러개의 입력값</strong>을 받는다.</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">def</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token operator">**</span>dic<span class="token punctuation">)</span><span class="token punctuation">:</span>
-	<span class="token keyword">print</span><span class="token punctuation">(</span>dic<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-find<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">'devleo'</span><span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">17</span><span class="token punctuation">)</span>
-</code></pre>
-<p>매개변수에 <code>**</code>를 붙이면 <strong>딕셔너리</strong>로 변환된다.</p>
-<pre class=" language-py"><code class="prism  language-py">a <span class="token operator">=</span> <span class="token number">1</span>
-<span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-	<span class="token keyword">global</span> a
-	a<span class="token operator">+=</span><span class="token number">1</span>
-test<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
-</code></pre>
-<p>전역변수 a를 함수 안에서 쓰려면 <code>global 변수</code></p>
-<h2 id="함수-사용시-주의할-점">함수 사용시 주의할 점</h2>
-<ul>
-<li><strong>함수 안에서 만든 변수는 함수 안에서만 사용 가능</strong></li>
-<li>매개변수는 함수 밖의 변수 이름과는 상관 없음</li>
-</ul>
-<h2 id="lambda">lambda</h2>
-<p>함수를 한줄로 간결하게 만들 때 사용</p>
-<pre class=" language-py"><code class="prism  language-py">mul<span class="token operator">=</span><span class="token keyword">lambda</span>  a<span class="token punctuation">,</span>b<span class="token punctuation">:</span> a<span class="token operator">*</span>b
-<span class="token keyword">print</span><span class="token punctuation">(</span>mul<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<h1 id="파일-입출력">파일 입출력</h1>
-
-<table>
-<thead>
-<tr>
-<th>파일 열기 모드</th>
-<th>기능</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>r</td>
-<td>읽기 모드</td>
-</tr>
-<tr>
-<td>w</td>
-<td>쓰기 모드</td>
-</tr>
-<tr>
-<td>a</td>
-<td>추가 모드</td>
-</tr>
-</tbody>
-</table><pre class=" language-py"><code class="prism  language-py">f<span class="token operator">=</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-	f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'%d번째 줄\n'</span><span class="token operator">%</span>i<span class="token punctuation">)</span>
-f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<p>test.txt에 데이터 저장</p>
-<pre class=" language-py"><code class="prism  language-py">f<span class="token operator">=</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span>
-<span class="token keyword">while</span>  <span class="token number">1</span><span class="token punctuation">:</span>
-	line<span class="token operator">=</span>f<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span>
-	<span class="token keyword">if</span> <span class="token operator">not</span> line<span class="token punctuation">:</span>
-		<span class="token keyword">break</span>
-	<span class="token keyword">print</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span>
-f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<p>test.txt 한줄씩 읽고 출력</p>
-<pre class=" language-py"><code class="prism  language-py">f<span class="token operator">=</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'test.txt'</span><span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span>
-line<span class="token operator">=</span>f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> line<span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<p>test.txt 내용을 한줄씩 리스트로 저장</p>
-<p><strong>쓰기모드로 파일을 열면 원래 있던 데이터가 모두 사라진다.</strong> 값을 추가하려면 추가모드로 열면 된다.</p>
-<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"./test.txt"</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
-	f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span>
-</code></pre>
-<p>close() 가 필요없다.</p>
-
-    </div>
-  </div>
 </body>
 
 </html>
